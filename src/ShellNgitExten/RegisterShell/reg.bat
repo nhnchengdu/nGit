@@ -1,0 +1,1 @@
+regasm ShellNgitExten.dll /CodeBase

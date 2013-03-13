@@ -1,0 +1,65 @@
+﻿<Window x:Class="NGitApp.AppMainWnd"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"  
+    xmlns:cs="clr-namespace:NGitApp.SelfControl"   
+    xmlns:local="clr-namespace:NGitApp"
+  
+    mc:Ignorable="d"
+    Title="AppMainWnd" Height="137" Width="349" Topmost="True" Visibility="Visible" ResizeMode="NoResize" SizeToContent="Manual" WindowStyle="None" Background="#00FFFFFF" AllowsTransparency="True" AllowDrop="False" ShowInTaskbar="False" BorderThickness="0" BorderBrush="Black" Icon="/NGitApp;component/App_Res/Ngit64.png" MouseDown="Window_MouseDown">
+  
+    <Window.Resources>
+        <ResourceDictionary>
+            <local:LegalRepoFunctionVisibleConvert x:Key="FunctionVisibilityConvert" />
+        </ResourceDictionary>
+
+    </Window.Resources>    
+    
+    <Canvas Height="107" Width="337" AllowDrop="True" Name="TopCanva" DragEnter="TopCanva_DragEnter" Drop="TopCanva_Drop" Loaded="TopCanva_Loaded">
+        <Button HorizontalAlignment="Left" Name="m_btnConfigure" Width="38" Height="38" VerticalAlignment="Top" Canvas.Left="33" Canvas.Top="39" Click="m_btnConfigure_Click" BorderThickness="0" ToolTip="配置NGit">
+            
+            <Image  Height="32" Name="image1" Width="32" Source="/NGitApp;component/App_Res/Set48.png" />
+        </Button>
+        <Button Canvas.Left="71" Canvas.Top="39" Height="38" Name="m_btnLocal" Width="38" Click="m_btnLocal_Click" ToolTip="工作区">
+            <Image Height="32" Name="image3" Source="/NGitApp;component/App_Res/folder48.png" Width="32" />
+        </Button>
+        <Button Canvas.Left="109" Canvas.Top="39" Height="38" Name="m_btnStorage" Width="38" Click="m_btnStorage_Click" ToolTip="本地代码库">
+            <Image Height="32" Name="image4" Source="/NGitApp;component/App_Res/storage48.png" Width="32" />
+        </Button>
+        <Button Canvas.Left="146" Canvas.Top="39" Height="38" Name="m_btnRemote" Width="38" Click="m_btnRemote_Click" ToolTip="远程代码库">
+            <Image Height="32" Name="image5" Source="/NGitApp;component/App_Res/Server48.png" Width="32" />
+        </Button>
+        <Button Canvas.Left="184" Canvas.Top="39" Height="38" Name="m_btnGerrit" Width="38" Click="m_btnGerrit_Click" ToolTip="Gerrit工作流程(开发中)">
+            <Image Height="32" Name="image6" Source="/NGitApp;component/App_Res/Gerrit48.png" Width="32" />
+        </Button>
+        <Button Canvas.Left="222" Canvas.Top="39" Height="38" Name="m_btnMsg" Width="38" Click="m_btnMsg_Click" ToolTip="Messag(开发中)">
+            <Image Height="32" Name="image7" Source="/NGitApp;component/App_Res/Msg96.png" Width="32" />
+        </Button>
+        <Border Canvas.Left="27" Canvas.Top="78" Height="26" Name="border1" Width="306" Background="Linen" BorderThickness="2" CornerRadius="9,9,9,9" BorderBrush="BurlyWood" AllowDrop="True">
+            <TextBlock Height="17" Name="DirectoryTX" Width="290"  Background="Linen" Text="c:\" MouseLeftButtonDown="DirectoryTX_MouseLeftButtonDown" Cursor="Hand" ContextMenuOpening="DirectoryTX_ContextMenuOpening" ToolTip="右击可以打开历史列表"></TextBlock>
+        </Border>  
+        <Image Canvas.Left="263" Canvas.Top="4" Height="47" Name="ImgGitIcon" Stretch="Fill" Width="65" Source="/NGitApp;component/App_Res/Ngit64.png" MouseRightButtonDown="ImgGitIcon_MouseRightButtonDown" ToolTip="左键拖动，右键隐藏" />
+        <Canvas Canvas.Left="29" Canvas.Top="16" Height="22" Name="FunctionCanvas" Width="232" Background="DarkKhaki" Visibility="{Binding IsLegualRepo, Converter={StaticResource FunctionVisibilityConvert}}">
+            <cs:SwitchImg Canvas.Left="1" Canvas.Top="1" Height="20" x:Name="ImgIgnore" Stretch="Fill"  Source="/NGitApp;component/App_Res/FunctionImg2/Ignore_n.png" Width="20" MouseLeftButtonDown="ImgIgnore_MouseLeftButtonDown" ToolTip="编辑 ignore列表" />
+            <cs:SwitchImg Canvas.Left="22" Canvas.Top="1" Height="20" x:Name="ImgStash" Source="/NGitApp;component/App_Res/FunctionImg2/Stash_n.png" Stretch="Fill" Width="20" MouseLeftButtonDown="ImgStash_MouseLeftButtonDown" ToolTip="保存/恢复工作进度" />
+            <cs:SwitchImg Canvas.Left="43" Canvas.Top="1" Height="20" x:Name="ImgStage" Source="/NGitApp;component/App_Res/FunctionImg2/Add_n.png" Stretch="Fill" Width="20"  MouseLeftButtonDown="ImgStage_MouseLeftButtonDown" ToolTip="提交到Index区" />
+            <cs:SwitchImg Canvas.Left="64" Canvas.Top="1" Height="20" x:Name="ImgUnStage" Source="/NGitApp;component/App_Res/FunctionImg2/Minus_n.png" Stretch="Fill" Width="20"  MouseLeftButtonDown="ImgUnStage_MouseLeftButtonDown" ToolTip="从Index区恢复" />
+            <cs:SwitchImg Canvas.Left="85" Canvas.Top="1" Height="20" x:Name="ImgCommit" Source="/NGitApp;component/App_Res/FunctionImg2/Commit_n.png" Stretch="Fill" Width="20"  MouseLeftButtonDown="ImgCommit_MouseLeftButtonDown" ToolTip="提交到本地代码库" />
+            <cs:SwitchImg Canvas.Left="106" Canvas.Top="1" Height="20" x:Name="ImgRevert" Source="/NGitApp;component/App_Res/FunctionImg2/Revert_n.png" Stretch="Fill" Width="20"  MouseLeftButtonDown="ImgRevert_MouseLeftButtonDown" ToolTip="恢复" />
+            <cs:SwitchImg Canvas.Left="127" Canvas.Top="1" Height="20" x:Name="ImgPush" Source="/NGitApp;component/App_Res/FunctionImg2/Push_n.png" Stretch="Fill" Width="20"  MouseLeftButtonDown="ImgPush_MouseLeftButtonDown" ToolTip="提交(到远程版本库)" />
+            <cs:SwitchImg Canvas.Left="148" Canvas.Top="1" Height="20" x:Name="ImgFetch" Source="/NGitApp;component/App_Res/FunctionImg2/Pull_n.png" Stretch="Fill" Width="20"  MouseLeftButtonDown="ImgFetch_MouseLeftButtonDown" ToolTip="获取(从远程版本库)" />
+            <cs:SwitchImg Canvas.Left="169" Canvas.Top="1" Height="20" x:Name="ImgSync" Source="/NGitApp;component/App_Res/FunctionImg2/Async_n.png" Stretch="Fill" Width="20"  MouseLeftButtonDown="ImgSync_MouseLeftButtonDown" ToolTip="更新(从远程版本库)" />
+            <cs:SwitchImg Canvas.Left="190" Canvas.Top="1" Height="20" x:Name="ImgConflict" Source="/NGitApp;component/App_Res/FunctionImg2/Conflict_n.png" Stretch="Fill" Width="20" ToolTip="解决冲突" MouseLeftButtonDown="ImgConflict_MouseLeftButtonDown" />
+            <cs:SwitchImg Canvas.Left="211" Canvas.Top="1" Height="20" x:Name="ImgGraph" Source="/NGitApp;component/App_Res/FunctionImg2/Graph_n.png" Stretch="Fill" Width="20" ToolTip="显示分支图(暂时)" MouseLeftButtonDown="ImgBranchGraph_MouseLeftButtonDown" />
+
+        </Canvas>
+
+               
+        <Image Canvas.Left="260" Canvas.Top="50" Height="29" Name="image2" Stretch="Fill" Width="71" Source="/NGitApp;component/App_Res/BranchBoard.png" />
+        <TextBlock Canvas.Left="276" Canvas.Top="48" Height="30" Name="TextCurBranch" Width="52" Foreground="Cyan" FontSize="13" TextAlignment="Center" Focusable="False" TextWrapping="Wrap" MaxWidth="52"  Text="{Binding m_szCurrentBranch}" MaxHeight="30" Cursor="Hand" MouseLeftButtonDown="textBlock1_MouseLeftButtonDown" ToolTip="请确保任何时候，工作分支不能为空。" />
+        <Image Canvas.Left="3" Canvas.Top="39" Height="38" Name="ImgWarning" Source="/NGitApp;component/App_Res/warning.png" Stretch="Fill" Width="29" Visibility="{Binding IsShowWarning, Converter={StaticResource FunctionVisibilityConvert}}" ToolTip="{Binding m_szWarningInfo}" />
+    </Canvas>
+</Window>

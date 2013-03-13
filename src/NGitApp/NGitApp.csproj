@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{64B8F914-03AD-40EB-B9F1-0D51E58E1481}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NGitApp</RootNamespace>
+    <AssemblyName>NGitApp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ApplicationIcon>Ngit.ico</ApplicationIcon>
+    <StartupObject>NGitApp.App.NewEntryPoint</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="AppMainWnd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AppMainWnd.xaml.cs">
+      <DependentUpon>AppMainWnd.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppMainWndModel.cs" />
+    <Compile Include="AppMainWndViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SwitchImg.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GitCore\GitCore.csproj">
+      <Project>{7618C72D-E0C5-4CC5-A75C-09BD864051CB}</Project>
+      <Name>GitCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\Set48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\Ngit64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\folder48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\strorage96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\Server48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\Msg96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\Gerrit48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\storage48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\btn1.png" />
+    <Resource Include="App_Res\btn11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\BranchBoard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\FunctionImg2\Add_n.png" />
+    <Resource Include="App_Res\FunctionImg2\Add_o.png" />
+    <Resource Include="App_Res\FunctionImg2\Async_n.png" />
+    <Resource Include="App_Res\FunctionImg2\Async_o.png" />
+    <Resource Include="App_Res\FunctionImg2\Commit_n.png" />
+    <Resource Include="App_Res\FunctionImg2\Commit_o.png" />
+    <Resource Include="App_Res\FunctionImg2\Delete_n.png" />
+    <Resource Include="App_Res\FunctionImg2\Delete_o.png" />
+    <Resource Include="App_Res\FunctionImg2\Ignore_n.png" />
+    <Resource Include="App_Res\FunctionImg2\Ignore_o.png" />
+    <Resource Include="App_Res\FunctionImg2\Minus_n.png" />
+    <Resource Include="App_Res\FunctionImg2\Minus_o.png" />
+    <Resource Include="App_Res\FunctionImg2\Pull_n.png" />
+    <Resource Include="App_Res\FunctionImg2\Pull_o.png" />
+    <Resource Include="App_Res\FunctionImg2\Push_n.png" />
+    <Resource Include="App_Res\FunctionImg2\Push_o.png" />
+    <Resource Include="App_Res\FunctionImg2\Revert_n.png" />
+    <Resource Include="App_Res\FunctionImg2\Revert_o.png" />
+    <Resource Include="App_Res\FunctionImg2\share_this.png" />
+    <Resource Include="App_Res\FunctionImg2\Stash_n.png" />
+    <Resource Include="App_Res\FunctionImg2\Stash_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\FunctionImg2\Conflict_n.png" />
+    <Resource Include="App_Res\FunctionImg2\Conflict_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\FunctionImg2\Graph_n.png" />
+    <Resource Include="App_Res\FunctionImg2\Graph_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Res\Ngit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\FunctionImg2\total.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_Res\total.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ngit.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

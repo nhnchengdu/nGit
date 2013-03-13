@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F1894F5D-DAFA-4323-9F22-C9BF70CDBC94}"
+	ProjectSection(SolutionItems) = preProject
+		Overview.xml = Overview.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SccProvider", "SccProvider\SccProvider.csproj", "{ADECE07A-5D80-4950-9DA5-A681CE2F5106}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nGetSetupHelper", "nGetSetupHelper\nGetSetupHelper.csproj", "{A791AEBD-51E3-470E-BF0A-4F50F9FFA42B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitCore", "GitCore\GitCore.csproj", "{7618C72D-E0C5-4CC5-A75C-09BD864051CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGitApp", "NGitApp\NGitApp.csproj", "{64B8F914-03AD-40EB-B9F1-0D51E58E1481}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellNgitExten", "ShellNgitExten\ShellNgitExten.csproj", "{FEAEC7F4-2FB3-4A41-BEF4-2D09CE835478}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7618C72D-E0C5-4CC5-A75C-09BD864051CB} = {7618C72D-E0C5-4CC5-A75C-09BD864051CB}
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NGitDesktopSetup", "NGitDesktopSetup\NGitDesktopSetup.vdproj", "{B43E2E31-B6F3-4958-A4AF-76E782419B27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NgitDesktopSetupHelper", "NgitDesktopSetupHelper\NgitDesktopSetupHelper.csproj", "{BF0A5F77-7FAC-45B7-BF43-B576C2C7DE45}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NgitSccSetup", "NGitSccSetup\nGitSccSetup.vdproj", "{E9F37EA4-7D9B-4C0E-AC9A-64833490E8C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADECE07A-5D80-4950-9DA5-A681CE2F5106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADECE07A-5D80-4950-9DA5-A681CE2F5106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADECE07A-5D80-4950-9DA5-A681CE2F5106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADECE07A-5D80-4950-9DA5-A681CE2F5106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A791AEBD-51E3-470E-BF0A-4F50F9FFA42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A791AEBD-51E3-470E-BF0A-4F50F9FFA42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A791AEBD-51E3-470E-BF0A-4F50F9FFA42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A791AEBD-51E3-470E-BF0A-4F50F9FFA42B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7618C72D-E0C5-4CC5-A75C-09BD864051CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7618C72D-E0C5-4CC5-A75C-09BD864051CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7618C72D-E0C5-4CC5-A75C-09BD864051CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7618C72D-E0C5-4CC5-A75C-09BD864051CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64B8F914-03AD-40EB-B9F1-0D51E58E1481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64B8F914-03AD-40EB-B9F1-0D51E58E1481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64B8F914-03AD-40EB-B9F1-0D51E58E1481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64B8F914-03AD-40EB-B9F1-0D51E58E1481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEAEC7F4-2FB3-4A41-BEF4-2D09CE835478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEAEC7F4-2FB3-4A41-BEF4-2D09CE835478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEAEC7F4-2FB3-4A41-BEF4-2D09CE835478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEAEC7F4-2FB3-4A41-BEF4-2D09CE835478}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B43E2E31-B6F3-4958-A4AF-76E782419B27}.Debug|Any CPU.ActiveCfg = Debug
+		{B43E2E31-B6F3-4958-A4AF-76E782419B27}.Release|Any CPU.ActiveCfg = Release
+		{BF0A5F77-7FAC-45B7-BF43-B576C2C7DE45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF0A5F77-7FAC-45B7-BF43-B576C2C7DE45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF0A5F77-7FAC-45B7-BF43-B576C2C7DE45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF0A5F77-7FAC-45B7-BF43-B576C2C7DE45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9F37EA4-7D9B-4C0E-AC9A-64833490E8C9}.Debug|Any CPU.ActiveCfg = Debug
+		{E9F37EA4-7D9B-4C0E-AC9A-64833490E8C9}.Debug|Any CPU.Build.0 = Debug
+		{E9F37EA4-7D9B-4C0E-AC9A-64833490E8C9}.Release|Any CPU.ActiveCfg = Release
+		{E9F37EA4-7D9B-4C0E-AC9A-64833490E8C9}.Release|Any CPU.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+		DebugSamples90.Connect = 1;Configure Project for VSIP Experimental Environment;ConfigVSIPDebug
+	EndGlobalSection
+EndGlobal

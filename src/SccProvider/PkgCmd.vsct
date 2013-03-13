@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!-- 
+  ***************************************************************************
+    Copyright (c) Microsoft Corporation. All rights reserved.
+    This code is licensed under the Visual Studio SDK license terms.
+    THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+    ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+    IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+    PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+  ***************************************************************************
+  -->
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+  <Extern href="msobtnid.h"/>
+
+  <Commands package="guidSccProviderPkg">
+    <Menus>
+      <!-- Menu for source control commands under File/SourceControl -->
+      <Menu guid="guidSccProviderCmdSet" id="imnuFileSourceControlMenu" priority="0x0000" type="Menu">
+        <Parent guid="guidSccProviderCmdSet" id="igrpFileSourceControl"/>
+        <Strings>
+          <ButtonText>NHNGitSccProvider</ButtonText>
+          <CommandName>NHN Git Source Control </CommandName>
+        </Strings>
+      </Menu>
+      <!--  Menu for commands in toolwindow's toolbar -->
+      <Menu guid="guidSccProviderCmdSet" id="imnuToolWindowToolbarMenu" priority="0x0000" type="ToolWindowToolbar">
+        <Parent guid="guidSccProviderCmdSet" id="imnuToolWindowToolbarMenu"/>
+        <Strings>
+          <ButtonText>NHNGitWindowBar</ButtonText>
+          <CommandName>NHN Git Window Bar</CommandName>
+        </Strings>
+      </Menu>
+      <!--  Create a top-level toolbar for source control commands -->
+      <Menu guid="guidSccProviderCmdSet" id="itbrSccToolbar" priority="0x0000" type="Toolbar">
+        <Parent guid="guidSccProviderCmdSet" id="igrpSccNowhere"/>
+        <CommandFlag>DefaultDocked</CommandFlag>
+        <Strings>
+          <ButtonText>NHN Git Source Control Toolbar</ButtonText>
+          <CommandName>NHN Git Source Control Toolbar</CommandName>
+        </Strings>
+      </Menu>
+
+      <!-- NGit Top Menu -->
+      <Menu guid="guidSccProviderCmdSet" id="IDM_MENU_NGIT" priority="0x500" type="Menu">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_BUILDDEBUGRUN" />
+        <Strings>
+          <ButtonText>nGit</ButtonText>
+          <CommandName>nGit</CommandName>
+        </Strings>
+      </Menu>
+    </Menus>
+
+
+
+
+
+    <Groups>
+      <!-- 	Group for scci commands in the File main menu -->
+      <Group guid="guidSccProviderCmdSet" id="igrpFileSourceControl" priority="0x0800">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_FILE"/>
+      </Group>
+      <!-- 	Group for scci buttons in the File/SourceControl menu -->
+      <Group guid="guidSccProviderCmdSet" id="igrpSourceControlCommands" priority="0x0000">
+        <Parent guid="guidSccProviderCmdSet" id="imnuFileSourceControlMenu"/>
+      </Group>
+      <!-- 	Group for commands under View main menu -->
+      <Group guid="guidSccProviderCmdSet" id="igrpViewToolWindowGroup" priority="0x0100">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_VIEW"/>
+      </Group>
+      <!-- 	Group for buttons in toolwindow's toolbar -->
+      <Group guid="guidSccProviderCmdSet" id="igrpToolWindowToolbarGroup" priority="0x0100">
+        <Parent guid="guidSccProviderCmdSet" id="imnuToolWindowToolbarMenu"/>
+      </Group>
+
+
+
+
+      <!--nGit top menu groups -->
+
+      <Group guid="guidSccProviderCmdSet" id="IDG_MAINMENU_REOSITORY_GROUP" priority="0x0101">
+        <Parent guid="guidSccProviderCmdSet" id="IDM_MENU_NGIT"/>
+      </Group>
+
+      <Group guid="guidSccProviderCmdSet" id="IDG_NGIT_GROUP4" priority="0x0103">
+        <Parent guid="guidSccProviderCmdSet" id="IDM_MENU_NGIT"/>
+      </Group>
+
+
+      <Group guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_LOCAL_GROUP" priority="0x0103">
+        <Parent guid="guidSccProviderCmdSet" id="itbrSccToolbar"/>
+      </Group>
+      <Group guid="guidSccProviderCmdSet" id="IDG_MAINMENU_LOCAL_GROUP" priority="0x0102">
+        <Parent guid="guidSccProviderCmdSet" id="IDM_MENU_NGIT"/>
+      </Group>
+
+      <Group guid="guidSccProviderCmdSet" id="IDG_MAINMENU_MAIN_GROUP" priority="0x0109">
+        <Parent guid="guidSccProviderCmdSet" id="IDM_MENU_NGIT"/>
+      </Group>
+      <Group guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_MAIN_GROUP" priority="0x0010">
+        <Parent guid="guidSccProviderCmdSet" id="itbrSccToolbar"/>
+      </Group>
+
+      <Group guid="guidSccProviderCmdSet" id="IDG_MAINMENU_BRANCH_GROUP" priority="0x0102">
+        <Parent guid="guidSccProviderCmdSet" id="IDM_MENU_NGIT"/>
+      </Group>
+      <Group guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_BRANCH_GROUP" priority="0x00115">
+        <Parent guid="guidSccProviderCmdSet" id="itbrSccToolbar"/>
+      </Group>
+
+      <Group guid="guidSccProviderCmdSet" id="IDG_MAINMENU_REMOTE_GROUP" priority="0x0103">
+        <Parent guid="guidSccProviderCmdSet" id="IDM_MENU_NGIT"/>
+      </Group>
+      <Group guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_REMOTE_GROUP" priority="0x00116">
+        <Parent guid="guidSccProviderCmdSet" id="itbrSccToolbar"/>
+      </Group>
+    </Groups>
+
+
+
+
+    <Buttons>
+      <!-- 	Buttons in the toolwindow's toolbar -->
+      <Button guid="guidSccProviderCmdSet" id="icmdToolWindowToolbarCommand" priority="0x0100" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="igrpToolWindowToolbarGroup"/>
+        <Icon guid="guidSccProviderImages" id="iconCheckout"/>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <ButtonText>ToolButton</ButtonText>
+        </Strings>
+      </Button>
+      
+      <!--nGit Menu button -->
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitCreate" priority="0x0100" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_REOSITORY_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="iconAdd" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitTooBar</CommandName>
+          <ButtonText>Create Repository</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitClone" priority="0x0200" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_REOSITORY_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="iconAdd" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitTooBar</CommandName>
+          <ButtonText>Clone Repository</ButtonText>
+        </Strings>
+      </Button>
+
+
+      <!--nGit Local operation button -->
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitStage" priority="0x0200" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_LOCAL_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="iconStage" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitStage</CommandName>
+          <ButtonText>Stage</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitUnStage" priority="0x0300" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_LOCAL_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="iconUnstage" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitUnStage</CommandName>
+          <ButtonText>UnStage</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitCommit" priority="0x0400" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_LOCAL_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="iconCommit" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitCommit</CommandName>
+          <ButtonText>Commit...</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitDiscard" priority="0x0500" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_LOCAL_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="iconDiscard" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitDiscard</CommandName>
+          <ButtonText>Revert Changes</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitDelete" priority="0x0600" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_LOCAL_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="iconDelete" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitDelete</CommandName>
+          <ButtonText>Delete.</ButtonText>
+        </Strings>
+      </Button>
+
+
+      <!--nGit Main button -->
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitAdvanced" priority="0x0600" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_MAIN_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="iconMain" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitAdvanced</CommandName>
+          <ButtonText>Main</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitBlame" priority="0x0600" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_MAIN_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="iconLog" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitBlame</CommandName>
+          <ButtonText>File History Log</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitIgnore" priority="0x0600" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_MAIN_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="iconIgnore" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitIgnore</CommandName>
+          <ButtonText>Ignore.</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitStash" priority="0x0600" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_MAIN_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="iconStash" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitStash</CommandName>
+          <ButtonText>Stash...</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnProperyWnd" priority="0x0600" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_MAIN_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="iconPropertyWnd" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnProperyWnd</CommandName>
+          <ButtonText>Git Property Window</ButtonText>
+        </Strings>
+      </Button>
+
+      <!--nGit Remote button -->
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitLocal" priority="0x0600" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_REMOTE_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="IconLocal" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitLocal</CommandName>
+          <ButtonText>Working Area</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitRepo" priority="0x0601" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_REMOTE_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="IconRepo" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitRepo</CommandName>
+          <ButtonText>Local Repository</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidSccProviderCmdSet" id="cmdidNhnGitRemote" priority="0x0602" type="Button">
+        <Parent guid="guidSccProviderCmdSet" id="IDG_MAINMENU_REMOTE_GROUP"/>
+        <Icon guid="guidSccProviderImages" id="IconRemote" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>cmdidNhnGitRemote</CommandName>
+          <ButtonText>Remote Repository</ButtonText>
+        </Strings>
+      </Button>
+
+
+    </Buttons>
+
+    <Bitmaps>
+      <Bitmap guid="guidSccProviderImages" href="Resources\Images_32bit.bmp" usedList="iconStage, iconUnstage, iconCommit,iconDiscard,iconDelete,iconMain,iconStash,iconBranch,iconSwitch,iconIgnore,iconLog,IconLocal,IconRepo,IconRemote,iconPropertyWnd"/>
+    </Bitmaps>
+  </Commands>
+
+  <CommandPlacements>
+    <!--Context menu group for SolutionExplorer -->
+    <!--To add commands in context menus, a new group can be defined and placed into existing menus, -->
+    <!--in which case you'll have to add it to context menus for nodes of interest (solution, project, -->
+    <!--folder, item, solution folder, web reference node, properties node, etc),  -->
+    <!--A better approach though is to use one of the existing groups created for source control commands, -->
+    <!--like IDG_VS_CTXT_ITEM_SCC, IDG_VS_CTXT_PROJECT_SCC, IDG_VS_CTXT_SOLUTION_SCC. -->
+
+    <!--Place the source control commands defined in context menu for Solution Explorer also under File/SourceControl menu -->
+    <CommandPlacement guid="guidSccProviderCmdSet" id="icmdAddToSourceControl" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_ITEM_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="icmdAddToSourceControl" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="icmdAddToSourceControl" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="icmdCheckout" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_ITEM_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="icmdCheckout" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="icmdCheckout" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="icmdCheckin" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_ITEM_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="icmdCheckin" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="icmdCheckin" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="icmdUseSccOffline" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_ITEM_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="icmdUseSccOffline" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="icmdUseSccOffline" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_SCC"/>
+    </CommandPlacement>
+    <!-- Also place the scc commands in the toolbar -->
+    <CommandPlacement guid="guidSccProviderCmdSet" id="igrpSourceControlCommands" priority="0x0090">
+      <Parent guid="guidSccProviderCmdSet" id="itbrSccToolbar"/>
+    </CommandPlacement>
+
+
+
+    <!-- Ngit local toolbar-->
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitStage" priority="0x0010">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_LOCAL_GROUP"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitUnStage" priority="0x0020">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_LOCAL_GROUP"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitCommit" priority="0x0030">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_LOCAL_GROUP"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitDiscard" priority="0x0040">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_LOCAL_GROUP"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitDelete" priority="0x0050">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_LOCAL_GROUP"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_LOCAL_GROUP" priority="0x0050">
+      <Parent guid="guidSccProviderCmdSet" id="imnuFileSourceControlMenu"/>
+    </CommandPlacement>
+
+    <!-- Ngit local toolbar-->
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitStage" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_ITEM_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitUnStage" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_ITEM_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitCommit" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_ITEM_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitDiscard" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_ITEM_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitDelete" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_ITEM_SCC"/>
+    </CommandPlacement>
+
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitStage" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitUnStage" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitCommit" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitDiscard" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitDelete" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_SCC"/>
+    </CommandPlacement>
+
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitStage" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitUnStage" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitCommit" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitDiscard" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_SCC"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitDelete" priority="0x0000">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_SCC"/>
+    </CommandPlacement>
+
+    <!-- Ngit main toolbar-->
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitAdvanced" priority="0x0010">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_MAIN_GROUP"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitBlame" priority="0x0020">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_MAIN_GROUP"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitIgnore" priority="0x0030">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_MAIN_GROUP"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitStash" priority="0x0040">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_MAIN_GROUP"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnProperyWnd" priority="0x0050">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_MAIN_GROUP"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnProperyWnd" priority="0x0050">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_MAIN_GROUP"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnProperyWnd" priority="0x0050">
+      <Parent guid="guidSccProviderCmdSet" id="igrpViewToolWindowGroup"/>
+    </CommandPlacement>
+
+
+    <!-- Ngit Remote toolbar-->
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitLocal" priority="0x0010">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_REMOTE_GROUP"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitRepo" priority="0x0020">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_REMOTE_GROUP"/>
+    </CommandPlacement>
+    <CommandPlacement guid="guidSccProviderCmdSet" id="cmdidNhnGitRemote" priority="0x0030">
+      <Parent guid="guidSccProviderCmdSet" id="IDG_TOOLBAR_REMOTE_GROUP"/>
+    </CommandPlacement>
+
+  </CommandPlacements>
+
+
+
+
+
+
+  <Symbols>
+    <GuidSymbol name="guidSccProviderPkg" value="{DD172D54-6B60-4D7D-BA5E-99F875A7C9AD}" />
+    <GuidSymbol name="guidSccProviderCmdSet" value="{DD172D54-6B70-4D7D-BA5E-99F875A7C9AD}" >
+
+      <IDSymbol name="icmdAddToSourceControl" value="0x100"/>
+      <IDSymbol name="icmdCheckout" value="0x101"/>
+      <IDSymbol name="icmdCheckin" value="0x102"/>
+      <IDSymbol name="icmdToolWindowToolbarCommand" value="0x104"/>
+      <IDSymbol name="icmdUseSccOffline" value="0x105"/>
+
+      <IDSymbol name="imnuFileSourceControlMenu" value="0x200"/>
+      <IDSymbol name="imnuToolWindowToolbarMenu" value="0x201"/>
+
+      <IDSymbol name="igrpFileSourceControl" value="0x300"/>
+      <IDSymbol name="igrpSourceControlCommands" value="0x301"/>
+      <IDSymbol name="igrpViewToolWindowGroup" value="0x302"/>
+      <IDSymbol name="igrpToolWindowToolbarGroup" value="0x303"/>
+      <IDSymbol name="igrpSccNowhere" value="0x304"/>
+      <IDSymbol name="itbrSccToolbar" value="0x400"/>
+
+      <IDSymbol name="IDM_MENU_NGIT" value="0x600"/>
+      <IDSymbol name="IDG_MAINMENU_REOSITORY_GROUP" value="0x520"/>
+      <IDSymbol name="IDG_NGIT_GROUP4" value="0x540"/>
+      <IDSymbol name="IDG_TOOLBAR_LOCAL_GROUP" value="0x541"/>
+      <IDSymbol name="cmdidNhnGitCreate" value="0x550"/>
+      <IDSymbol name="cmdidNhnGitClone" value="0x551"/>
+
+
+      <IDSymbol name="IDG_MAINMENU_LOCAL_GROUP" value="0x530"/>
+      <IDSymbol name="IDG_TOOLBAR_LOCAL_GROUP" value="0x541"/>
+      <IDSymbol name="cmdidNhnGitStage" value="0x552"/>
+      <IDSymbol name="cmdidNhnGitUnStage" value="0x553"/>
+      <IDSymbol name="cmdidNhnGitCommit" value="0x554"/>
+      <IDSymbol name="cmdidNhnGitDiscard" value="0x555"/>
+      <IDSymbol name="cmdidNhnGitDelete" value="0x556"/>
+
+      <IDSymbol name="IDG_MAINMENU_MAIN_GROUP" value="0x531"/>
+      <IDSymbol name="IDG_TOOLBAR_MAIN_GROUP" value="0x542"/>
+      <IDSymbol name="cmdidNhnGitAdvanced" value="0x563"/>
+      <IDSymbol name="cmdidNhnGitBlame" value="0x564"/>
+      <IDSymbol name="cmdidNhnGitIgnore" value="0x565"/>
+      <IDSymbol name="cmdidNhnProperyWnd" value="0x566"/>
+      <IDSymbol name="cmdidNhnGitStash" value="0x560"/>
+
+
+      <IDSymbol name="IDG_MAINMENU_BRANCH_GROUP" value="0x532"/>
+      <IDSymbol name="IDG_TOOLBAR_BRANCH_GROUP" value="0x543"/>
+
+      <IDSymbol name="IDG_MAINMENU_REMOTE_GROUP" value="0x533"/>
+      <IDSymbol name="IDG_TOOLBAR_REMOTE_GROUP" value="0x544"/>
+      <IDSymbol name="cmdidNhnGitRepo" value="0x557"/>
+      <IDSymbol name="cmdidNhnGitRemote" value="0x558"/>
+      <IDSymbol name="cmdidNhnGitLocal" value="0x559"/>
+
+    </GuidSymbol>
+
+
+    <GuidSymbol name="guidSccProviderImages" value="{7701C9CA-A0EF-4754-835C-23D7CB4376E9}" >
+      <IDSymbol name="iconStage" value="1"/>
+      <IDSymbol name="iconUnstage" value="2"/>
+      <IDSymbol name="iconCommit" value="3"/>
+      <IDSymbol name="iconDiscard" value="4"/>
+      <IDSymbol name="iconDelete" value="5"/>
+
+      <IDSymbol name="iconMain" value="6"/>
+      <IDSymbol name="iconLog" value="11"/>
+      <IDSymbol name="iconIgnore" value="10"/>
+      <IDSymbol name="iconPropertyWnd" value="15"/>
+
+      <IDSymbol name="iconStash" value="7"/>
+      <IDSymbol name="iconBranch" value="8"/>
+      <IDSymbol name="iconSwitch" value="9"/>
+
+      <IDSymbol name="IconLocal" value="12"/>
+      <IDSymbol name="IconRemote" value="13"/>
+      <IDSymbol name="IconRepo" value="14"/>
+
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

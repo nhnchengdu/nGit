@@ -1,0 +1,739 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7618C72D-E0C5-4CC5-A75C-09BD864051CB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nhn.Git.Core</RootNamespace>
+    <AssemblyName>GitCore</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>NGitCore.pfx</AssemblyOriginatorKeyFile>
+    <ApplicationIcon>Ngit_Icon32.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Git\Core\command\CGitCmd.cs" />
+    <Compile Include="Git\Core\command\CGitCmdAdd.cs" />
+    <Compile Include="Git\Core\command\CGitCmdBlame.cs" />
+    <Compile Include="Git\Core\command\CGitCmdBranch.cs" />
+    <Compile Include="Git\Core\command\CGitCmdCatFile.cs" />
+    <Compile Include="Git\Core\command\CGitCmdCheckout.cs" />
+    <Compile Include="Git\Core\command\CGitCmdClean.cs" />
+    <Compile Include="Git\Core\command\CGitCmdClone.cs" />
+    <Compile Include="Git\Core\command\CGitCmdCommit.cs" />
+    <Compile Include="Git\Core\command\CGitCmdConfig.cs" />
+    <Compile Include="Git\Core\command\CGitCmdDiff.cs" />
+    <Compile Include="Git\Core\command\CGitCmdDiffTool.cs" />
+    <Compile Include="Git\Core\command\CGitCmdInitRepo.cs" />
+    <Compile Include="Git\Core\command\CGitCmdLog.cs" />
+    <Compile Include="Git\Core\command\CGitCmdLsFiles.cs" />
+    <Compile Include="Git\Core\command\CGitCmdLsTree.cs" />
+    <Compile Include="Git\Core\command\CGitCmdMerge.cs" />
+    <Compile Include="Git\Core\command\CGitCmdMergeBase.cs" />
+    <Compile Include="Git\Core\command\CGitCmdMergeTool.cs" />
+    <Compile Include="Git\Core\command\CGitCmdPull.cs" />
+    <Compile Include="Git\Core\command\CGitCmdPush.cs" />
+    <Compile Include="Git\Core\command\CGitCmdRebase.cs" />
+    <Compile Include="Git\Core\command\CGitCmdRefLog.cs" />
+    <Compile Include="Git\Core\command\CGitCmdRemote.cs" />
+    <Compile Include="Git\Core\command\CGitCmdReset.cs" />
+    <Compile Include="Git\Core\command\CGitCmdRevList.cs" />
+    <Compile Include="Git\Core\command\CGitCmdRevParse.cs" />
+    <Compile Include="Git\Core\command\CGitCmdRm.cs" />
+    <Compile Include="Git\Core\command\CGitCmdSSH.cs" />
+    <Compile Include="Git\Core\command\CGitCmdStash.cs" />
+    <Compile Include="Git\Core\command\CGitCmdSvn.cs" />
+    <Compile Include="Git\Core\command\CGitCmdTag.cs" />
+    <Compile Include="Git\Core\command\CGitCmdUnStage.cs" />
+    <Compile Include="Git\Core\command\CGitFileStatus.cs" />
+    <Compile Include="Git\Core\Helper\CGitEncodingHelper.cs" />
+    <Compile Include="Git\Core\Helper\CGitSourceHelpler.cs" />
+    <Compile Include="Git\Core\Helper\CHelpFuntions.cs" />
+    <Compile Include="Git\Core\Helper\CRegistryFunction.cs" />
+    <Compile Include="Git\Core\SourceApp\CGitSourceConfig.cs" />
+    <Compile Include="Git\Core\SourceApp\CGitSourceLog.cs" />
+    <Compile Include="Git\Core\SourceApp\CGitSourceModule.cs" />
+    <Compile Include="Git\Manager\CGitManager.cs" />
+    <Compile Include="Git\Manager\CGitManagerCore.cs" />
+    <Compile Include="Git\Manager\CGitManagerRepo.cs" />
+    <Compile Include="Git\Manager\CGitManagerUI.cs" />
+    <Compile Include="Git\Repository\CGitRemoteInfo.cs" />
+    <Compile Include="Git\Repository\CGitRepository.cs" />
+    <Compile Include="Git\UI\CGitAsynchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Git\UI\CGitAsynchFomr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\CLocalOperCotrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Git\UI\CLocalOperCotrol.Designer.cs">
+      <DependentUpon>CLocalOperCotrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\CRemoteControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Git\UI\CRemoteControl.Designer.cs">
+      <DependentUpon>CRemoteControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\CRepositoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Git\UI\CRepositoryControl.Designer.cs">
+      <DependentUpon>CRepositoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Custom Control\CCheckComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Custom Control\CCommitsListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Custom Control\CIconList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Custom Control\CRichTextBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Custom Control\CSystemTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Custom Control\SystemIcon.cs" />
+    <Compile Include="Git\UI\WinAppChild\FormConflict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormConflict.Designer.cs">
+      <DependentUpon>FormConflict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormPush.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormPush.Designer.cs">
+      <DependentUpon>FormPush.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormAdd.Designer.cs">
+      <DependentUpon>FormAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormBlame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormBlame.Designer.cs">
+      <DependentUpon>FormBlame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormClone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormClone.Designer.cs">
+      <DependentUpon>FormClone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormCommit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormCommit.Designer.cs">
+      <DependentUpon>FormCommit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormDelete.Designer.cs">
+      <DependentUpon>FormDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormDsicard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormDsicard.Designer.cs">
+      <DependentUpon>FormDsicard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormIgnore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormIgnore.Designer.cs">
+      <DependentUpon>FormIgnore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormInitRepo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormInitRepo.Designer.cs">
+      <DependentUpon>FormInitRepo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormProperty.Designer.cs">
+      <DependentUpon>FormProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormSshProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormSshProperty.Designer.cs">
+      <DependentUpon>FormSshProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormStash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormStash.Designer.cs">
+      <DependentUpon>FormStash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormUnstage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormUnstage.Designer.cs">
+      <DependentUpon>FormUnstage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\FormWaiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\FormWaiting.Designer.cs">
+      <DependentUpon>FormWaiting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormSwitchBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormSwitchBranch.Designer.cs">
+      <DependentUpon>FormSwitchBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\LocalOpera Child\Form_Local_BranchOnProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\LocalOpera Child\Form_Local_BranchOnProgress.Designer.cs">
+      <DependentUpon>Form_Local_BranchOnProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\LocalOpera Child\Form_Local_RestoreProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\LocalOpera Child\Form_Local_RestoreProgress.Designer.cs">
+      <DependentUpon>Form_Local_RestoreProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\LocalOpera Child\Form_Local_SaveProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\LocalOpera Child\Form_Local_SaveProgress.Designer.cs">
+      <DependentUpon>Form_Local_SaveProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_AddRemote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_AddRemote.Designer.cs">
+      <DependentUpon>Form_Remote_AddRemote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_AddSubModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_AddSubModule.Designer.cs">
+      <DependentUpon>Form_Remote_AddSubModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_AddTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_AddTracking.Designer.cs">
+      <DependentUpon>Form_Remote_AddTracking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_DelRemoteBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_DelRemoteBranch.Designer.cs">
+      <DependentUpon>Form_Remote_DelRemoteBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_EditRemote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_EditRemote.Designer.cs">
+      <DependentUpon>Form_Remote_EditRemote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_Fetch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_Fetch.Designer.cs">
+      <DependentUpon>Form_Remote_Fetch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_MergeChildTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_MergeChildTree.Designer.cs">
+      <DependentUpon>Form_Remote_MergeChildTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_PullBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_PullBranch.Designer.cs">
+      <DependentUpon>Form_Remote_PullBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_PushlBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_PushlBranch.Designer.cs">
+      <DependentUpon>Form_Remote_PushlBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_RemoveRemote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_RemoveRemote.Designer.cs">
+      <DependentUpon>Form_Remote_RemoveRemote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_RemoveTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_RemoveTracking.Designer.cs">
+      <DependentUpon>Form_Remote_RemoveTracking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_RenameRemote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_RenameRemote.Designer.cs">
+      <DependentUpon>Form_Remote_RenameRemote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_SynchBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_SynchBranch.Designer.cs">
+      <DependentUpon>Form_Remote_SynchBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_UpLoadBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_UpLoadBranch.Designer.cs">
+      <DependentUpon>Form_Remote_UpLoadBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_UploadTag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\RemoteOpera Child\Form_Remote_UploadTag.Designer.cs">
+      <DependentUpon>Form_Remote_UploadTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_AddBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_AddBranch.Designer.cs">
+      <DependentUpon>Form_Repo_AddBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_AddTag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_AddTag.Designer.cs">
+      <DependentUpon>Form_Repo_AddTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_CheckOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_CheckOut.Designer.cs">
+      <DependentUpon>Form_Repo_CheckOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_CherryPickTo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_CherryPickTo.Designer.cs">
+      <DependentUpon>Form_Repo_CherryPickTo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_FileHistory .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_FileHistory .Designer.cs">
+      <DependentUpon>Form_Repo_FileHistory .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_Filter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_Filter.Designer.cs">
+      <DependentUpon>Form_Repo_Filter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_MergeTo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_MergeTo.Designer.cs">
+      <DependentUpon>Form_Repo_MergeTo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_RebaseTo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_RebaseTo.Designer.cs">
+      <DependentUpon>Form_Repo_RebaseTo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_RemoveBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_RemoveBranch.Designer.cs">
+      <DependentUpon>Form_Repo_RemoveBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_RemoveTag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_RemoveTag.Designer.cs">
+      <DependentUpon>Form_Repo_RemoveTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_Reset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_Reset.Designer.cs">
+      <DependentUpon>Form_Repo_Reset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_RestoreHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_RestoreHistory.Designer.cs">
+      <DependentUpon>Form_Repo_RestoreHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_Revert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_Revert.Designer.cs">
+      <DependentUpon>Form_Repo_Revert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_SwitchBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\Respository Child\Form_Repo_SwitchBranch.Designer.cs">
+      <DependentUpon>Form_Repo_SwitchBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\SccProviderProperty.cs" />
+    <Compile Include="Git\UI\TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\TestForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\TestForm2.Designer.cs">
+      <DependentUpon>TestForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\TestForm3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\TestForm3.Designer.cs">
+      <DependentUpon>TestForm3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormPull.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormPull.Designer.cs">
+      <DependentUpon>FormPull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormFetch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Git\UI\WinAppChild\FormFetch.Designer.cs">
+      <DependentUpon>FormFetch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Git\UI\CLocalOperCotrol.resx">
+      <DependentUpon>CLocalOperCotrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\CRemoteControl.resx">
+      <DependentUpon>CRemoteControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\CRepositoryControl.resx">
+      <DependentUpon>CRepositoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormConflict.resx">
+      <DependentUpon>FormConflict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormPush.resx">
+      <DependentUpon>FormPush.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormAdd.resx">
+      <DependentUpon>FormAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormBlame.resx">
+      <DependentUpon>FormBlame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormClone.resx">
+      <DependentUpon>FormClone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormCommit.resx">
+      <DependentUpon>FormCommit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormDelete.resx">
+      <DependentUpon>FormDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormDsicard.resx">
+      <DependentUpon>FormDsicard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormIgnore.resx">
+      <DependentUpon>FormIgnore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormInitRepo.resx">
+      <DependentUpon>FormInitRepo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormProperty.resx">
+      <DependentUpon>FormProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormSshProperty.resx">
+      <DependentUpon>FormSshProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormStash.resx">
+      <DependentUpon>FormStash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormUnstage.resx">
+      <DependentUpon>FormUnstage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\FormWaiting.resx">
+      <DependentUpon>FormWaiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormSwitchBranch.resx">
+      <DependentUpon>FormSwitchBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\LocalOpera Child\Form_Local_BranchOnProgress.resx">
+      <DependentUpon>Form_Local_BranchOnProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\LocalOpera Child\Form_Local_RestoreProgress.resx">
+      <DependentUpon>Form_Local_RestoreProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\LocalOpera Child\Form_Local_SaveProgress.resx">
+      <DependentUpon>Form_Local_SaveProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_AddRemote.resx">
+      <DependentUpon>Form_Remote_AddRemote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_AddSubModule.resx">
+      <DependentUpon>Form_Remote_AddSubModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_AddTracking.resx">
+      <DependentUpon>Form_Remote_AddTracking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_DelRemoteBranch.resx">
+      <DependentUpon>Form_Remote_DelRemoteBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_EditRemote.resx">
+      <DependentUpon>Form_Remote_EditRemote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_Fetch.resx">
+      <DependentUpon>Form_Remote_Fetch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_PullBranch.resx">
+      <DependentUpon>Form_Remote_PullBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_PushlBranch.resx">
+      <DependentUpon>Form_Remote_PushlBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_RemoveRemote.resx">
+      <DependentUpon>Form_Remote_RemoveRemote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_RemoveTracking.resx">
+      <DependentUpon>Form_Remote_RemoveTracking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_RenameRemote.resx">
+      <DependentUpon>Form_Remote_RenameRemote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_SynchBranch.resx">
+      <DependentUpon>Form_Remote_SynchBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_UpLoadBranch.resx">
+      <DependentUpon>Form_Remote_UpLoadBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\RemoteOpera Child\Form_Remote_UploadTag.resx">
+      <DependentUpon>Form_Remote_UploadTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_AddBranch.resx">
+      <DependentUpon>Form_Repo_AddBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_AddTag.resx">
+      <DependentUpon>Form_Repo_AddTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_CheckOut.resx">
+      <DependentUpon>Form_Repo_CheckOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_CherryPickTo.resx">
+      <DependentUpon>Form_Repo_CherryPickTo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_FileHistory .resx">
+      <DependentUpon>Form_Repo_FileHistory .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_Filter.resx">
+      <DependentUpon>Form_Repo_Filter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_MergeTo.resx">
+      <DependentUpon>Form_Repo_MergeTo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_RebaseTo.resx">
+      <DependentUpon>Form_Repo_RebaseTo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_RemoveBranch.resx">
+      <DependentUpon>Form_Repo_RemoveBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_RemoveTag.resx">
+      <DependentUpon>Form_Repo_RemoveTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_Reset.resx">
+      <DependentUpon>Form_Repo_Reset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_RestoreHistory.resx">
+      <DependentUpon>Form_Repo_RestoreHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_Revert.resx">
+      <DependentUpon>Form_Repo_Revert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\Respository Child\Form_Repo_SwitchBranch.resx">
+      <DependentUpon>Form_Repo_SwitchBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\TestForm2.resx">
+      <DependentUpon>TestForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\TestForm3.resx">
+      <DependentUpon>TestForm3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormPull.resx">
+      <DependentUpon>FormPull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Git\UI\WinAppChild\FormFetch.resx">
+      <DependentUpon>FormFetch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\change file status\Icon_Change_A.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\change file status\Icon_Change_C.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\change file status\Icon_Change_D.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\change file status\Icon_Change_M.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\change file status\Icon_Change_R.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\change file status\Icon_Change_T.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\change file status\Icon_Change_U.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\change file status\Icon_Change_X.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\File Status\Icon_State_Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\File Status\Icon_State_Commit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\File Status\Icon_State_Mix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\File Status\Icon_State_Repo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Icon_Branch.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Icon_Button_Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Icon_Button_Swtich.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Icon_Child.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Icon_Father.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Icon_Father.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Icon_state_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Icon_state_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Icon_state_3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Icon_state_4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\Icon_Tag.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Ngit_Icon32.ico" />
+    <Content Include="Properties\Resources\Images_24bit.bmp" />
+    <Content Include="Properties\Resources\Images_32bit.bmp" />
+    <Content Include="Properties\Resources\IsTracking.png" />
+    <None Include="app.config" />
+    <None Include="NGitCore.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\Resources\Remote\Icon_URL.png" />
+    <None Include="Properties\Resources\Remote\Icon_Tag.png" />
+    <None Include="Properties\Resources\Remote\Icon_Repo.png" />
+    <None Include="Properties\Resources\Remote\Icon-Tracking.png" />
+    <None Include="Properties\Resources\Remote\Icon-Branch.png" />
+    <None Include="Properties\Resources\Product.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

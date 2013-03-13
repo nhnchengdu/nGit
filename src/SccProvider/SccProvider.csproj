@@ -1,0 +1,203 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ADECE07A-5D80-4950-9DA5-A681CE2F5106}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nhn.Git.SourceControl.Provider</RootNamespace>
+    <AssemblyName>SccProvider</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <NoStdLib>false</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.9.0" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SccProvider\DataStreamFromComStream.cs" />
+    <Compile Include="SccProvider\DlgQueryEditCheckedInFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SccProvider\DlgQueryEditCheckedInFile.Designer.cs">
+      <DependentUpon>DlgQueryEditCheckedInFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SccProvider\DlgQuerySaveCheckedInFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SccProvider\DlgQuerySaveCheckedInFile.Designer.cs">
+      <DependentUpon>DlgQuerySaveCheckedInFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SccProvider\ProvideSolutionProps.cs" />
+    <Compile Include="SccProvider\SccProvider.cs" />
+    <Compile Include="SccProvider\CommandId.cs" />
+    <Compile Include="SccProvider\Guids.cs" />
+    <Compile Include="SccProvider\ProvideSourceControlProvider.cs" />
+    <Compile Include="SccProvider\ProvideToolsOptionsPageVisibility.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SccProvider\SccProviderOptions.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SccProvider\SccProviderOptionsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SccProvider\SccProviderProperty.cs" />
+    <Compile Include="SccProvider\SccProviderService.cs" />
+    <Compile Include="SccProvider\SccProviderStorage.cs" />
+    <Compile Include="SccProvider\SccProviderToolWindow.cs" />
+    <Compile Include="SccProvider\SccProviderToolWindowControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SccProvider\SccProvider_Git_Execution.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SccProvider\DlgQueryEditCheckedInFile.resx">
+      <DependentUpon>DlgQueryEditCheckedInFile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SccProvider\DlgQuerySaveCheckedInFile.resx">
+      <DependentUpon>DlgQuerySaveCheckedInFile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <MergeWithCTO>true</MergeWithCTO>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SccProvider\SccProviderOptionsControl.resx">
+      <DependentUpon>SccProviderOptionsControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SccProvider\SccProviderToolWindow.resx">
+      <DependentUpon>SccProviderToolWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SccProvider\SccProviderToolWindowControl.resx">
+      <DependentUpon>SccProviderToolWindowControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SccProvider\VSPackage.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon_state_1.bmp" />
+    <None Include="Resources\Icon_state_2.bmp" />
+    <None Include="Resources\Icon_state_3.bmp" />
+    <None Include="Resources\Icon_state_4.bmp" />
+    <None Include="Resources\Icon_Father.ico" />
+    <None Include="Resources\Icon_Branch.bmp" />
+    <None Include="Resources\Icon_Child.bmp" />
+    <None Include="Resources\Icon_Father.bmp" />
+    <None Include="Resources\Icon_Tag.bmp" />
+    <None Include="Resources\change file status\Icon_Change_A.bmp" />
+    <None Include="Resources\change file status\Icon_Change_C.bmp" />
+    <None Include="Resources\change file status\Icon_Change_D.bmp" />
+    <None Include="Resources\change file status\Icon_Change_M.bmp" />
+    <None Include="Resources\change file status\Icon_Change_R.bmp" />
+    <None Include="Resources\change file status\Icon_Change_T.bmp" />
+    <None Include="Resources\change file status\Icon_Change_U.bmp" />
+    <None Include="Resources\change file status\Icon_Change_X.bmp" />
+    <None Include="Resources\Icon_Button_Swtich.bmp" />
+    <None Include="Resources\Icon_Button_Search.png" />
+    <None Include="Resources\File Status\Icon_State_Add.png" />
+    <None Include="Resources\File Status\Icon_State_Commit.png" />
+    <None Include="Resources\File Status\Icon_State_Mix.png" />
+    <None Include="Resources\File Status\Icon_State_Repo.png" />
+    <Content Include="Resources\Images_24bit.bmp" />
+    <Content Include="Resources\Images_32bit.bmp" />
+    <None Include="Resources\Remote\Icon_Tag1.png" />
+    <None Include="Resources\Remote\Icon_Tag.png" />
+    <None Include="Resources\Remote\Icon_URL.png" />
+    <None Include="Resources\Remote\Icon-Tracking.png" />
+    <None Include="Resources\Remote\Icon-Branch.png" />
+    <None Include="Resources\Remote\Icon_URL.ico" />
+    <None Include="Resources\Remote\Icon_Repo.png" />
+    <None Include="Resources\Product.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <VSCTCompile Include="PkgCmd.vsct">
+      <ResourceName>1000</ResourceName>
+    </VSCTCompile>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="SccProvider\ClassDiagram.cd" />
+    <None Include="SccProvider\ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GitCore\GitCore.csproj">
+      <Project>{7618C72D-E0C5-4CC5-A75C-09BD864051CB}</Project>
+      <Name>GitCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <!--
+    To specify a different registry root to register your package, uncomment the TargetRegistryRoot
+    tag and specify a registry root in it.
+    <TargetRegistryRoot></TargetRegistryRoot>
+    -->
+    <RegisterOutputPackage>true</RegisterOutputPackage>
+    <RegisterWithCodebase>true</RegisterWithCodebase>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\VSSDK\Microsoft.VsSDK.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
