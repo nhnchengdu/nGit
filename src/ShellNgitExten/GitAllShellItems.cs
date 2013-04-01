@@ -423,7 +423,7 @@ namespace Nhn.Git.Shell.Extention
                                     pro.StartInfo.WorkingDirectory = file.Directory.FullName;
                                     pro.StartInfo.FileName = szExeName;
                                     pro.StartInfo.CreateNoWindow = false;
-                                    pro.StartInfo.Arguments = szOperPath;
+                                    pro.StartInfo.Arguments = string.Format("\"{0}\"",szOperPath);
                                     pro.Start();
 
                                     //proc.StartInfo.FileName = "IExplore.exe";
